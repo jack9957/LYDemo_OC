@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		B6C2B8761D82605A005EAAEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8751D82605A005EAAEE /* main.m */; };
 		B6C2B8791D82605A005EAAEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8781D82605A005EAAEE /* AppDelegate.m */; };
-		B6C2B87C1D82605A005EAAEE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B87B1D82605A005EAAEE /* ViewController.m */; };
 		B6C2B87F1D82605A005EAAEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C2B87D1D82605A005EAAEE /* Main.storyboard */; };
 		B6C2B8811D82605A005EAAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6C2B8801D82605A005EAAEE /* Assets.xcassets */; };
 		B6C2B8841D82605A005EAAEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6C2B8821D82605A005EAAEE /* LaunchScreen.storyboard */; };
+		B6C2B8B41D826262005EAAEE /* LYTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8B31D826262005EAAEE /* LYTableViewController.m */; };
+		B6C2B8B91D82629C005EAAEE /* LYCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8B61D82629C005EAAEE /* LYCellItem.m */; };
+		B6C2B8BA1D82629C005EAAEE /* LYSectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8B81D82629C005EAAEE /* LYSectionItem.m */; };
+		B6C2B8BF1D8262B4005EAAEE /* LYHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8BC1D8262B4005EAAEE /* LYHeaderView.m */; };
+		B6C2B8C01D8262B4005EAAEE /* LYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2B8BE1D8262B4005EAAEE /* LYTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +24,20 @@
 		B6C2B8751D82605A005EAAEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6C2B8771D82605A005EAAEE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6C2B8781D82605A005EAAEE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B6C2B87A1D82605A005EAAEE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B6C2B87B1D82605A005EAAEE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B6C2B87E1D82605A005EAAEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6C2B8801D82605A005EAAEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6C2B8831D82605A005EAAEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6C2B8851D82605A005EAAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6C2B8B21D826262005EAAEE /* LYTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTableViewController.h; sourceTree = "<group>"; };
+		B6C2B8B31D826262005EAAEE /* LYTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTableViewController.m; sourceTree = "<group>"; };
+		B6C2B8B51D82629C005EAAEE /* LYCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYCellItem.h; sourceTree = "<group>"; };
+		B6C2B8B61D82629C005EAAEE /* LYCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCellItem.m; sourceTree = "<group>"; };
+		B6C2B8B71D82629C005EAAEE /* LYSectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSectionItem.h; sourceTree = "<group>"; };
+		B6C2B8B81D82629C005EAAEE /* LYSectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSectionItem.m; sourceTree = "<group>"; };
+		B6C2B8BB1D8262B4005EAAEE /* LYHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYHeaderView.h; sourceTree = "<group>"; };
+		B6C2B8BC1D8262B4005EAAEE /* LYHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYHeaderView.m; sourceTree = "<group>"; };
+		B6C2B8BD1D8262B4005EAAEE /* LYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYTableViewCell.h; sourceTree = "<group>"; };
+		B6C2B8BE1D8262B4005EAAEE /* LYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +70,12 @@
 		B6C2B8731D82605A005EAAEE /* Table的折叠收起 */ = {
 			isa = PBXGroup;
 			children = (
+				B6C2B8AE1D826205005EAAEE /* Controller */,
+				B6C2B8AF1D826205005EAAEE /* Model */,
+				B6C2B8B01D826205005EAAEE /* Tools */,
+				B6C2B8B11D826205005EAAEE /* View */,
 				B6C2B8771D82605A005EAAEE /* AppDelegate.h */,
 				B6C2B8781D82605A005EAAEE /* AppDelegate.m */,
-				B6C2B87A1D82605A005EAAEE /* ViewController.h */,
-				B6C2B87B1D82605A005EAAEE /* ViewController.m */,
 				B6C2B87D1D82605A005EAAEE /* Main.storyboard */,
 				B6C2B8801D82605A005EAAEE /* Assets.xcassets */,
 				B6C2B8821D82605A005EAAEE /* LaunchScreen.storyboard */,
@@ -77,6 +91,44 @@
 				B6C2B8751D82605A005EAAEE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6C2B8AE1D826205005EAAEE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B6C2B8B21D826262005EAAEE /* LYTableViewController.h */,
+				B6C2B8B31D826262005EAAEE /* LYTableViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B6C2B8AF1D826205005EAAEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6C2B8B51D82629C005EAAEE /* LYCellItem.h */,
+				B6C2B8B61D82629C005EAAEE /* LYCellItem.m */,
+				B6C2B8B71D82629C005EAAEE /* LYSectionItem.h */,
+				B6C2B8B81D82629C005EAAEE /* LYSectionItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B6C2B8B01D826205005EAAEE /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		B6C2B8B11D826205005EAAEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6C2B8BB1D8262B4005EAAEE /* LYHeaderView.h */,
+				B6C2B8BC1D8262B4005EAAEE /* LYHeaderView.m */,
+				B6C2B8BD1D8262B4005EAAEE /* LYTableViewCell.h */,
+				B6C2B8BE1D8262B4005EAAEE /* LYTableViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +157,7 @@
 		B6C2B8691D82605A005EAAEE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LY;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = liyang;
 				TargetAttributes = {
@@ -149,9 +202,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6C2B87C1D82605A005EAAEE /* ViewController.m in Sources */,
+				B6C2B8BF1D8262B4005EAAEE /* LYHeaderView.m in Sources */,
 				B6C2B8791D82605A005EAAEE /* AppDelegate.m in Sources */,
+				B6C2B8BA1D82629C005EAAEE /* LYSectionItem.m in Sources */,
+				B6C2B8C01D8262B4005EAAEE /* LYTableViewCell.m in Sources */,
 				B6C2B8761D82605A005EAAEE /* main.m in Sources */,
+				B6C2B8B41D826262005EAAEE /* LYTableViewController.m in Sources */,
+				B6C2B8B91D82629C005EAAEE /* LYCellItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +357,7 @@
 				B6C2B88A1D82605A005EAAEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

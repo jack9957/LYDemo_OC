@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LYTableViewController.h
 //  Table的折叠收起
 //
 //  Created by liyang on 16/9/9.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LYTableViewController : UITableViewController
 
 @end
-
