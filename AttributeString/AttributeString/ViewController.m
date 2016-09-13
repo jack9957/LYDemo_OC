@@ -62,7 +62,7 @@
         
         ParagraphAttributes *config = [ParagraphAttributes new];
         
-        config.textColor                   = READ_WORD_COLOR;
+        config.textColor                   = [UIColor colorWithRed:0.600 green:0.490 blue:0.376 alpha:1];
         config.textFont                    = [UIFont fontWithName:QingKeBengYue size:16.f];
         config.lineSpacing                 = @(10.f);
         config.paragraphSpacing            = @(40.f);
@@ -71,7 +71,7 @@
         [config createAttributes];
     });
     
-    // 设置富文本
+    // 设置富文本（这里设置标题）
     self.bookView.attributes = @[[ConfigAttributedString foregroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.75f] range:NSMakeRange(0, 9)], [ConfigAttributedString font:[UIFont systemFontOfSize:22.0f] range:NSMakeRange(0, 9)]];
     
     // 加载其他view
