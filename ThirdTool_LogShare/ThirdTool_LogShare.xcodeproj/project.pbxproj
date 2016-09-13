@@ -13,6 +13,7 @@
 		B6AD27491D880DBC00D57406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD27471D880DBC00D57406 /* Main.storyboard */; };
 		B6AD274B1D880DBC00D57406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AD274A1D880DBC00D57406 /* Assets.xcassets */; };
 		B6AD274E1D880DBC00D57406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD274C1D880DBC00D57406 /* LaunchScreen.storyboard */; };
+		B6AD275E1D880F5A00D57406 /* LYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD275D1D880F5A00D57406 /* LYCoverView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		B6AD274A1D880DBC00D57406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6AD274D1D880DBC00D57406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6AD274F1D880DBC00D57406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6AD275C1D880F5A00D57406 /* LYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYCoverView.h; sourceTree = "<group>"; };
+		B6AD275D1D880F5A00D57406 /* LYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCoverView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +126,18 @@
 		B6AD275A1D880EB000D57406 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				B6AD275B1D880F4900D57406 /* ShareTool */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		B6AD275B1D880F4900D57406 /* ShareTool */ = {
+			isa = PBXGroup;
+			children = (
+				B6AD275C1D880F5A00D57406 /* LYCoverView.h */,
+				B6AD275D1D880F5A00D57406 /* LYCoverView.m */,
+			);
+			path = ShareTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +166,7 @@
 		B6AD27331D880DBC00D57406 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LY;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = liyang;
 				TargetAttributes = {
@@ -200,6 +214,7 @@
 				B6AD27461D880DBC00D57406 /* ViewController.m in Sources */,
 				B6AD27431D880DBC00D57406 /* AppDelegate.m in Sources */,
 				B6AD27401D880DBC00D57406 /* main.m in Sources */,
+				B6AD275E1D880F5A00D57406 /* LYCoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
