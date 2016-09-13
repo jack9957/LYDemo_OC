@@ -13,6 +13,11 @@
 		B6B9BEA31D86B2900041BA06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6B9BEA11D86B2900041BA06 /* Main.storyboard */; };
 		B6B9BEA51D86B2900041BA06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6B9BEA41D86B2900041BA06 /* Assets.xcassets */; };
 		B6B9BEA81D86B2900041BA06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6B9BEA61D86B2900041BA06 /* LaunchScreen.storyboard */; };
+		B6EA053E1D87A8B700896DF4 /* lorem.txt in Resources */ = {isa = PBXBuildFile; fileRef = B6EA053D1D87A8B700896DF4 /* lorem.txt */; };
+		B6EA05401D87A8C600896DF4 /* 方正清刻本悦宋简体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6EA053F1D87A8C600896DF4 /* 方正清刻本悦宋简体.ttf */; };
+		B6EA05441D87AA4900896DF4 /* BookTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EA05431D87AA4900896DF4 /* BookTextView.m */; };
+		B6EA054B1D87AB0400896DF4 /* ConfigAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EA054A1D87AB0400896DF4 /* ConfigAttributedString.m */; };
+		B6EA054E1D87B1FD00896DF4 /* ParagraphAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EA054D1D87B1FD00896DF4 /* ParagraphAttributes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,14 @@
 		B6B9BEA41D86B2900041BA06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6B9BEA71D86B2900041BA06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6B9BEA91D86B2900041BA06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6EA053D1D87A8B700896DF4 /* lorem.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lorem.txt; sourceTree = "<group>"; };
+		B6EA053F1D87A8C600896DF4 /* 方正清刻本悦宋简体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "方正清刻本悦宋简体.ttf"; sourceTree = "<group>"; };
+		B6EA05421D87AA4900896DF4 /* BookTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTextView.h; sourceTree = "<group>"; };
+		B6EA05431D87AA4900896DF4 /* BookTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTextView.m; sourceTree = "<group>"; };
+		B6EA05491D87AB0400896DF4 /* ConfigAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigAttributedString.h; sourceTree = "<group>"; };
+		B6EA054A1D87AB0400896DF4 /* ConfigAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigAttributedString.m; sourceTree = "<group>"; };
+		B6EA054C1D87B1FD00896DF4 /* ParagraphAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParagraphAttributes.h; sourceTree = "<group>"; };
+		B6EA054D1D87B1FD00896DF4 /* ParagraphAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParagraphAttributes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,8 @@
 				B6B9BE9C1D86B2900041BA06 /* AppDelegate.m */,
 				B6B9BE9E1D86B2900041BA06 /* ViewController.h */,
 				B6B9BE9F1D86B2900041BA06 /* ViewController.m */,
+				B6EA05411D87A8D800896DF4 /* TextKit */,
+				B6EA053C1D87A8A700896DF4 /* Resource */,
 				B6B9BEA11D86B2900041BA06 /* Main.storyboard */,
 				B6B9BEA41D86B2900041BA06 /* Assets.xcassets */,
 				B6B9BEA61D86B2900041BA06 /* LaunchScreen.storyboard */,
@@ -77,6 +92,36 @@
 				B6B9BE991D86B2900041BA06 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6EA053C1D87A8A700896DF4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B6EA053F1D87A8C600896DF4 /* 方正清刻本悦宋简体.ttf */,
+				B6EA053D1D87A8B700896DF4 /* lorem.txt */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		B6EA05411D87A8D800896DF4 /* TextKit */ = {
+			isa = PBXGroup;
+			children = (
+				B6EA05421D87AA4900896DF4 /* BookTextView.h */,
+				B6EA05431D87AA4900896DF4 /* BookTextView.m */,
+				B6EA05481D87AAC500896DF4 /* AttributeString */,
+			);
+			name = TextKit;
+			sourceTree = "<group>";
+		};
+		B6EA05481D87AAC500896DF4 /* AttributeString */ = {
+			isa = PBXGroup;
+			children = (
+				B6EA05491D87AB0400896DF4 /* ConfigAttributedString.h */,
+				B6EA054A1D87AB0400896DF4 /* ConfigAttributedString.m */,
+				B6EA054C1D87B1FD00896DF4 /* ParagraphAttributes.h */,
+				B6EA054D1D87B1FD00896DF4 /* ParagraphAttributes.m */,
+			);
+			name = AttributeString;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +183,8 @@
 			files = (
 				B6B9BEA81D86B2900041BA06 /* LaunchScreen.storyboard in Resources */,
 				B6B9BEA51D86B2900041BA06 /* Assets.xcassets in Resources */,
+				B6EA05401D87A8C600896DF4 /* 方正清刻本悦宋简体.ttf in Resources */,
+				B6EA053E1D87A8B700896DF4 /* lorem.txt in Resources */,
 				B6B9BEA31D86B2900041BA06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +196,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EA05441D87AA4900896DF4 /* BookTextView.m in Sources */,
+				B6EA054E1D87B1FD00896DF4 /* ParagraphAttributes.m in Sources */,
 				B6B9BEA01D86B2900041BA06 /* ViewController.m in Sources */,
 				B6B9BE9D1D86B2900041BA06 /* AppDelegate.m in Sources */,
+				B6EA054B1D87AB0400896DF4 /* ConfigAttributedString.m in Sources */,
 				B6B9BE9A1D86B2900041BA06 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +352,7 @@
 				B6B9BEAE1D86B2900041BA06 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

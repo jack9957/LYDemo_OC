@@ -24,28 +24,14 @@
                                     <action selector="btn1Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eyo-Qu-zRW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaT-J3-yCy">
-                                <rect key="frame" x="166" y="122" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="500" constant="342" id="qWr-ao-HN2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IaT-J3-yCy" firstAttribute="top" secondItem="Tal-je-kzE" secondAttribute="bottom" constant="64" id="TMW-bC-DnU"/>
                             <constraint firstItem="Tal-je-kzE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ciM-9P-Pac"/>
                             <constraint firstItem="Tal-je-kzE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hnb-pM-UZA"/>
-                            <constraint firstItem="IaT-J3-yCy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j7y-Yl-NWW"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="testLabel" destination="IaT-J3-yCy" id="kI8-WD-E6a"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
