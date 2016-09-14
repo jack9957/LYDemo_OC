@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B642DBFF1D89495900E7FC83 /* LYConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B642DBFE1D89495900E7FC83 /* LYConst.m */; };
 		B6AD27401D880DBC00D57406 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD273F1D880DBC00D57406 /* main.m */; };
 		B6AD27431D880DBC00D57406 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD27421D880DBC00D57406 /* AppDelegate.m */; };
 		B6AD27461D880DBC00D57406 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD27451D880DBC00D57406 /* ViewController.m */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B642DBFD1D89494400E7FC83 /* LYConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYConst.h; sourceTree = "<group>"; };
+		B642DBFE1D89495900E7FC83 /* LYConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYConst.m; sourceTree = "<group>"; };
+		B642DC001D894AEB00E7FC83 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B6AD273B1D880DBC00D57406 /* ThirdTool_LogShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirdTool_LogShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AD273F1D880DBC00D57406 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6AD27411D880DBC00D57406 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +46,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B642DBFC1D89492100E7FC83 /* ThirdLog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdLog;
+			sourceTree = "<group>";
+		};
 		B6AD27321D880DBC00D57406 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +78,7 @@
 				B6AD27421D880DBC00D57406 /* AppDelegate.m */,
 				B6AD27441D880DBC00D57406 /* ViewController.h */,
 				B6AD27451D880DBC00D57406 /* ViewController.m */,
+				B642DC001D894AEB00E7FC83 /* PrefixHeader.pch */,
 				B6AD27471D880DBC00D57406 /* Main.storyboard */,
 				B6AD274A1D880DBC00D57406 /* Assets.xcassets */,
 				B6AD274C1D880DBC00D57406 /* LaunchScreen.storyboard */,
@@ -126,7 +138,10 @@
 		B6AD275A1D880EB000D57406 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				B642DBFC1D89492100E7FC83 /* ThirdLog */,
 				B6AD275B1D880F4900D57406 /* ShareTool */,
+				B642DBFD1D89494400E7FC83 /* LYConst.h */,
+				B642DBFE1D89495900E7FC83 /* LYConst.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -167,11 +182,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LY;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = liyang;
 				TargetAttributes = {
 					B6AD273A1D880DBC00D57406 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6FWU53G3PX;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -213,6 +230,7 @@
 			files = (
 				B6AD27461D880DBC00D57406 /* ViewController.m in Sources */,
 				B6AD27431D880DBC00D57406 /* AppDelegate.m in Sources */,
+				B642DBFF1D89495900E7FC83 /* LYConst.m in Sources */,
 				B6AD27401D880DBC00D57406 /* main.m in Sources */,
 				B6AD275E1D880F5A00D57406 /* LYCoverView.m in Sources */,
 			);
@@ -254,8 +272,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -298,8 +318,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -326,10 +348,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6FWU53G3PX;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ThirdTool_LogShare/PrefixHeader.pch";
 				INFOPLIST_FILE = ThirdTool_LogShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liyang.ThirdTool-LogShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f7ee026b-92db-4495-a68c-013e272e9109";
+				PROVISIONING_PROFILE_SPECIFIER = lyAppIDProfiles;
 			};
 			name = Debug;
 		};
@@ -337,10 +365,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6FWU53G3PX;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ThirdTool_LogShare/PrefixHeader.pch";
 				INFOPLIST_FILE = ThirdTool_LogShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liyang.ThirdTool-LogShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f7ee026b-92db-4495-a68c-013e272e9109";
+				PROVISIONING_PROFILE_SPECIFIER = lyAppIDProfiles;
 			};
 			name = Release;
 		};
@@ -363,6 +397,7 @@
 				B6AD27541D880DBC00D57406 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
