@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LYThirdTools.h"
 
 @interface AppDelegate ()
 
@@ -17,8 +18,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[LYThirdTools sharedInstance] setupThirdTools];
+    
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    if ([url.host isEqualToString:@"qzapp"]) {
+        // 从qq跳回来的
+        
+    }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"]){
+        // 从微信登录 | 分享 跳回来的
+        [WXApi handleOpenURL:url delegate:[LYThirdTools sharedInstance]];
+    }else if ([url.host isEqualToString:@"safepay"]){
+        // 这是从支付宝跳回来的
+        
+    }else if ([url.host isEqualToString:@""]){
+        // 这是从新浪微博跳回来的
+        
+    }
+    return YES;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

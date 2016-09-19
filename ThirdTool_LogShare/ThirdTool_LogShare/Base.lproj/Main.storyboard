@@ -25,16 +25,14 @@
                                     <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XFm-ic-H3v"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-cn-m9S">
-                                <frame key="frameInset" minX="16" minY="40" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-cn-m9S">
                                 <state key="normal" title="weichat分享"/>
                                 <connections>
                                     <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vDw-9H-85n"/>
                                     <action selector="weiChatShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ax9-RA-fqq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-QI-HpY">
-                                <frame key="frameInset" minX="158" minY="40" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-QI-HpY">
                                 <state key="normal" title="qq分享"/>
                                 <connections>
                                     <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0SV-FP-kJC"/>
@@ -55,8 +53,7 @@
                                     <action selector="sina:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x01-ri-FCH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPa-ou-mDU">
-                                <frame key="frameInset" minX="300" minY="40" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPa-ou-mDU">
                                 <state key="normal" title="sina分享"/>
                                 <connections>
                                     <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eLO-TU-pKy"/>

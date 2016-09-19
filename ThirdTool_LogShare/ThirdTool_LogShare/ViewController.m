@@ -9,6 +9,7 @@
 /** 自己写一个qq，新浪，微信的登录分享 **/
 
 #import "ViewController.h"
+#import "LYThirdTools.h"
 
 @interface ViewController ()
 
@@ -29,10 +30,7 @@
 }
 - (IBAction)weichat:(id)sender
 {
-    // 在进行微信OAuth2.0授权登录接入之前，在微信开放平台注册开发者帐号，并拥有一个已审核通过的移动应用，并获得相应的AppID和AppSecret，申请微信登录且通过审核后，可开始接入流程。
-    
-    
-    
+    [[LYThirdTools sharedInstance] thirdToolsLog:WeiChatLog];
 }
 - (IBAction)sina:(id)sender
 {
@@ -40,11 +38,18 @@
 }
 
 #pragma mark - 分享
-- (IBAction)sinaShare:(id)sender {
+- (IBAction)sinaShare:(id)sender
+{
 }
-- (IBAction)qqShare:(id)sender {
+- (IBAction)qqShare:(id)sender
+{
+    
 }
-- (IBAction)weiChatShare:(id)sender {
+- (IBAction)weiChatShare:(id)sender
+{
+    LYToolModel *model = [LYToolModel toolModel];
+    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:WeiChatSession];
+//    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:WeiChatTimeline];
 }
 
 

@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60503AD1D8FD8070030A472 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503A71D8FD8070030A472 /* libWeChatSDK.a */; };
+		B60503B21D8FD86D0030A472 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503B11D8FD86D0030A472 /* SystemConfiguration.framework */; };
+		B60503B41D8FD87B0030A472 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503B31D8FD87B0030A472 /* libz.tbd */; };
+		B60503B61D8FD8870030A472 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503B51D8FD8870030A472 /* libsqlite3.0.tbd */; };
+		B60503B81D8FD89C0030A472 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503B71D8FD89C0030A472 /* libc++.tbd */; };
+		B60503BA1D8FD8A70030A472 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503B91D8FD8A70030A472 /* CoreTelephony.framework */; };
+		B60503BC1D8FD8AD0030A472 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503BB1D8FD8AD0030A472 /* Security.framework */; };
+		B60503BF1D8FDADD0030A472 /* LYThirdTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503BE1D8FDADD0030A472 /* LYThirdTools.m */; };
+		B60503D31D8FEECC0030A472 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503C71D8FEECC0030A472 /* AFHTTPSessionManager.m */; };
+		B60503D41D8FEECC0030A472 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503CA1D8FEECC0030A472 /* AFNetworkReachabilityManager.m */; };
+		B60503D51D8FEECC0030A472 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503CC1D8FEECC0030A472 /* AFSecurityPolicy.m */; };
+		B60503D61D8FEECC0030A472 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503CE1D8FEECC0030A472 /* AFURLRequestSerialization.m */; };
+		B60503D71D8FEECC0030A472 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503D01D8FEECC0030A472 /* AFURLResponseSerialization.m */; };
+		B60503D81D8FEECC0030A472 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B60503D21D8FEECC0030A472 /* AFURLSessionManager.m */; };
 		B642DBFF1D89495900E7FC83 /* LYConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B642DBFE1D89495900E7FC83 /* LYConst.m */; };
+		B65B12A61D8FF39C00D4333F /* LYNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B65B12A51D8FF39C00D4333F /* LYNetworking.m */; };
 		B6AD27401D880DBC00D57406 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD273F1D880DBC00D57406 /* main.m */; };
 		B6AD27431D880DBC00D57406 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD27421D880DBC00D57406 /* AppDelegate.m */; };
 		B6AD27461D880DBC00D57406 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD27451D880DBC00D57406 /* ViewController.m */; };
@@ -18,9 +33,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B642DBFD1D89494400E7FC83 /* LYConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYConst.h; sourceTree = "<group>"; };
-		B642DBFE1D89495900E7FC83 /* LYConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYConst.m; sourceTree = "<group>"; };
+		B60503A71D8FD8070030A472 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		B60503AA1D8FD8070030A472 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		B60503AB1D8FD8070030A472 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		B60503AC1D8FD8070030A472 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		B60503B11D8FD86D0030A472 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B60503B31D8FD87B0030A472 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B60503B51D8FD8870030A472 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		B60503B71D8FD89C0030A472 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		B60503B91D8FD8A70030A472 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B60503BB1D8FD8AD0030A472 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B60503BD1D8FDADD0030A472 /* LYThirdTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYThirdTools.h; sourceTree = "<group>"; };
+		B60503BE1D8FDADD0030A472 /* LYThirdTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYThirdTools.m; sourceTree = "<group>"; };
+		B60503C61D8FEECC0030A472 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		B60503C71D8FEECC0030A472 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		B60503C81D8FEECC0030A472 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		B60503C91D8FEECC0030A472 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		B60503CA1D8FEECC0030A472 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		B60503CB1D8FEECC0030A472 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		B60503CC1D8FEECC0030A472 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		B60503CD1D8FEECC0030A472 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		B60503CE1D8FEECC0030A472 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		B60503CF1D8FEECC0030A472 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		B60503D01D8FEECC0030A472 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		B60503D11D8FEECC0030A472 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		B60503D21D8FEECC0030A472 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		B642DBFD1D89494400E7FC83 /* LYConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LYConst.h; path = Tools/LYConst.h; sourceTree = "<group>"; };
+		B642DBFE1D89495900E7FC83 /* LYConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LYConst.m; path = Tools/LYConst.m; sourceTree = "<group>"; };
 		B642DC001D894AEB00E7FC83 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B65B12A41D8FF39C00D4333F /* LYNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNetworking.h; sourceTree = "<group>"; };
+		B65B12A51D8FF39C00D4333F /* LYNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNetworking.m; sourceTree = "<group>"; };
 		B6AD273B1D880DBC00D57406 /* ThirdTool_LogShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirdTool_LogShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AD273F1D880DBC00D57406 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6AD27411D880DBC00D57406 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,12 +82,72 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60503BC1D8FD8AD0030A472 /* Security.framework in Frameworks */,
+				B60503BA1D8FD8A70030A472 /* CoreTelephony.framework in Frameworks */,
+				B60503B81D8FD89C0030A472 /* libc++.tbd in Frameworks */,
+				B60503B61D8FD8870030A472 /* libsqlite3.0.tbd in Frameworks */,
+				B60503B41D8FD87B0030A472 /* libz.tbd in Frameworks */,
+				B60503B21D8FD86D0030A472 /* SystemConfiguration.framework in Frameworks */,
+				B60503AD1D8FD8070030A472 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B60503B01D8FD86D0030A472 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B60503BB1D8FD8AD0030A472 /* Security.framework */,
+				B60503B91D8FD8A70030A472 /* CoreTelephony.framework */,
+				B60503B71D8FD89C0030A472 /* libc++.tbd */,
+				B60503B51D8FD8870030A472 /* libsqlite3.0.tbd */,
+				B60503B31D8FD87B0030A472 /* libz.tbd */,
+				B60503B11D8FD86D0030A472 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B60503C01D8FE7680030A472 /* 常量 */ = {
+			isa = PBXGroup;
+			children = (
+				B642DC001D894AEB00E7FC83 /* PrefixHeader.pch */,
+				B642DBFD1D89494400E7FC83 /* LYConst.h */,
+				B642DBFE1D89495900E7FC83 /* LYConst.m */,
+			);
+			name = "常量";
+			sourceTree = "<group>";
+		};
+		B60503C11D8FEEB90030A472 /* 网络请求 */ = {
+			isa = PBXGroup;
+			children = (
+				B65B12A41D8FF39C00D4333F /* LYNetworking.h */,
+				B65B12A51D8FF39C00D4333F /* LYNetworking.m */,
+				B60503C51D8FEECC0030A472 /* AFNetworking */,
+			);
+			path = "网络请求";
+			sourceTree = "<group>";
+		};
+		B60503C51D8FEECC0030A472 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				B60503C61D8FEECC0030A472 /* AFHTTPSessionManager.h */,
+				B60503C71D8FEECC0030A472 /* AFHTTPSessionManager.m */,
+				B60503C81D8FEECC0030A472 /* AFNetworking.h */,
+				B60503C91D8FEECC0030A472 /* AFNetworkReachabilityManager.h */,
+				B60503CA1D8FEECC0030A472 /* AFNetworkReachabilityManager.m */,
+				B60503CB1D8FEECC0030A472 /* AFSecurityPolicy.h */,
+				B60503CC1D8FEECC0030A472 /* AFSecurityPolicy.m */,
+				B60503CD1D8FEECC0030A472 /* AFURLRequestSerialization.h */,
+				B60503CE1D8FEECC0030A472 /* AFURLRequestSerialization.m */,
+				B60503CF1D8FEECC0030A472 /* AFURLResponseSerialization.h */,
+				B60503D01D8FEECC0030A472 /* AFURLResponseSerialization.m */,
+				B60503D11D8FEECC0030A472 /* AFURLSessionManager.h */,
+				B60503D21D8FEECC0030A472 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 		B642DBFC1D89492100E7FC83 /* ThirdLog */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +160,7 @@
 			children = (
 				B6AD273D1D880DBC00D57406 /* ThirdTool_LogShare */,
 				B6AD273C1D880DBC00D57406 /* Products */,
+				B60503B01D8FD86D0030A472 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,13 +175,14 @@
 		B6AD273D1D880DBC00D57406 /* ThirdTool_LogShare */ = {
 			isa = PBXGroup;
 			children = (
+				B60503C11D8FEEB90030A472 /* 网络请求 */,
 				B6AD27551D880EB000D57406 /* lib */,
 				B6AD275A1D880EB000D57406 /* Tools */,
 				B6AD27411D880DBC00D57406 /* AppDelegate.h */,
 				B6AD27421D880DBC00D57406 /* AppDelegate.m */,
 				B6AD27441D880DBC00D57406 /* ViewController.h */,
 				B6AD27451D880DBC00D57406 /* ViewController.m */,
-				B642DC001D894AEB00E7FC83 /* PrefixHeader.pch */,
+				B60503C01D8FE7680030A472 /* 常量 */,
 				B6AD27471D880DBC00D57406 /* Main.storyboard */,
 				B6AD274A1D880DBC00D57406 /* Assets.xcassets */,
 				B6AD274C1D880DBC00D57406 /* LaunchScreen.storyboard */,
@@ -131,6 +235,10 @@
 		B6AD27591D880EB000D57406 /* weichat */ = {
 			isa = PBXGroup;
 			children = (
+				B60503A71D8FD8070030A472 /* libWeChatSDK.a */,
+				B60503AA1D8FD8070030A472 /* WechatAuthSDK.h */,
+				B60503AB1D8FD8070030A472 /* WXApi.h */,
+				B60503AC1D8FD8070030A472 /* WXApiObject.h */,
 			);
 			path = weichat;
 			sourceTree = "<group>";
@@ -140,8 +248,8 @@
 			children = (
 				B642DBFC1D89492100E7FC83 /* ThirdLog */,
 				B6AD275B1D880F4900D57406 /* ShareTool */,
-				B642DBFD1D89494400E7FC83 /* LYConst.h */,
-				B642DBFE1D89495900E7FC83 /* LYConst.m */,
+				B60503BD1D8FDADD0030A472 /* LYThirdTools.h */,
+				B60503BE1D8FDADD0030A472 /* LYThirdTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -229,10 +337,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6AD27461D880DBC00D57406 /* ViewController.m in Sources */,
+				B60503D41D8FEECC0030A472 /* AFNetworkReachabilityManager.m in Sources */,
 				B6AD27431D880DBC00D57406 /* AppDelegate.m in Sources */,
+				B60503BF1D8FDADD0030A472 /* LYThirdTools.m in Sources */,
 				B642DBFF1D89495900E7FC83 /* LYConst.m in Sources */,
 				B6AD27401D880DBC00D57406 /* main.m in Sources */,
+				B60503D51D8FEECC0030A472 /* AFSecurityPolicy.m in Sources */,
+				B60503D61D8FEECC0030A472 /* AFURLRequestSerialization.m in Sources */,
 				B6AD275E1D880F5A00D57406 /* LYCoverView.m in Sources */,
+				B65B12A61D8FF39C00D4333F /* LYNetworking.m in Sources */,
+				B60503D71D8FEECC0030A472 /* AFURLResponseSerialization.m in Sources */,
+				B60503D81D8FEECC0030A472 /* AFURLSessionManager.m in Sources */,
+				B60503D31D8FEECC0030A472 /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +470,10 @@
 				INFOPLIST_FILE = ThirdTool_LogShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/weichat",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liyang.ThirdTool-LogShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f7ee026b-92db-4495-a68c-013e272e9109";
@@ -371,6 +491,10 @@
 				INFOPLIST_FILE = ThirdTool_LogShare/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/weichat",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liyang.ThirdTool-LogShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f7ee026b-92db-4495-a68c-013e272e9109";
