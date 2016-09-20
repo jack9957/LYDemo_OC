@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WXApi.h"
+@class LYThirdTools;
 @class LYToolModel;
 
 /**
@@ -40,7 +41,30 @@ typedef NS_ENUM(NSUInteger, LYThirdLog) {
     QQLog
 };
 
+/**
+ 三方支付
+
+ - LYAliPay:     支付宝支付
+ - LYWeiChatPay: 微信支付
+ */
+typedef NS_ENUM(NSUInteger, LYThirdPayPlatForm) {
+    AliPay,
+    WeiChatPay
+};
+
+
+@protocol LYThirdToolsDelegate <NSObject>
+
+@optional
+- (void)thirdTool:(LYThirdTools *)tool weichatResult:(NSDictionary *)result;
+
+@end
+
+
 @interface LYThirdTools : NSObject<WXApiDelegate>
+
+/** LYThirdToolsDelegate */
+@property (nonatomic, assign) id<LYThirdToolsDelegate>delegate;
 
 /** 单例方法 */
 + (instancetype)sharedInstance;
@@ -48,11 +72,17 @@ typedef NS_ENUM(NSUInteger, LYThirdLog) {
 /** 向各个三方机构注册 */
 - (void)setupThirdTools;
 
+/** 检查有木有安装过：微信，微博，qq */
+- (BOOL)installThirdApp:(LYThirdLog)thirdApp;
+
 /** 分享的方法 */
 - (void)thirdToolsShareModel:(LYToolModel *)model toplatForm:(LYSharePlatForm)platForm;
 
 /** 登录的方法 */
 - (void)thirdToolsLog:(LYThirdLog)thirdLog;
+
+/** 支付的方法 */
+- (void)thirdPayWith:(NSDictionary *)payDic platForm:(LYThirdPayPlatForm)platForm;
 
 @end
 

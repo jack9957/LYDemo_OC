@@ -60,6 +60,12 @@
                                     <action selector="sinaShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fVu-3L-7e3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-Jt-2Cu">
+                                <state key="normal" title="微信支付"/>
+                                <connections>
+                                    <action selector="weiChatPay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FrJ-1U-A1B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -68,11 +74,13 @@
                             <constraint firstItem="uyj-yd-zNe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KhT-2e-1FF"/>
                             <constraint firstItem="yPa-ou-mDU" firstAttribute="centerY" secondItem="n6O-QI-HpY" secondAttribute="centerY" id="MzS-YO-SYV"/>
                             <constraint firstItem="n6O-QI-HpY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="QUx-Vl-tah"/>
+                            <constraint firstItem="jmf-Jt-2Cu" firstAttribute="top" secondItem="KTm-Hi-7ik" secondAttribute="bottom" constant="33" id="acn-Qf-1dP"/>
                             <constraint firstItem="aC5-QB-Rgm" firstAttribute="centerX" secondItem="uyj-yd-zNe" secondAttribute="centerX" id="hC6-lj-MG2"/>
                             <constraint firstItem="TRi-cn-m9S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="iZb-Te-YNr"/>
                             <constraint firstItem="KTm-Hi-7ik" firstAttribute="top" secondItem="aC5-QB-Rgm" secondAttribute="bottom" constant="53" id="j7m-a0-t1C"/>
                             <constraint firstItem="TRi-cn-m9S" firstAttribute="centerY" secondItem="n6O-QI-HpY" secondAttribute="centerY" id="kcy-he-d67"/>
                             <constraint firstItem="aC5-QB-Rgm" firstAttribute="top" secondItem="uyj-yd-zNe" secondAttribute="bottom" constant="38" id="mQI-GB-7ro"/>
+                            <constraint firstItem="jmf-Jt-2Cu" firstAttribute="centerX" secondItem="KTm-Hi-7ik" secondAttribute="centerX" id="mXi-wm-D5l"/>
                             <constraint firstItem="KTm-Hi-7ik" firstAttribute="centerX" secondItem="aC5-QB-Rgm" secondAttribute="centerX" id="tHh-In-gcv"/>
                             <constraint firstItem="n6O-QI-HpY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zjj-7D-uAw"/>
                         </constraints>
@@ -80,6 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="110.19490254872565"/>
         </scene>
     </scenes>
 </document>

@@ -29,7 +29,8 @@
 		B6AD27491D880DBC00D57406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD27471D880DBC00D57406 /* Main.storyboard */; };
 		B6AD274B1D880DBC00D57406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AD274A1D880DBC00D57406 /* Assets.xcassets */; };
 		B6AD274E1D880DBC00D57406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD274C1D880DBC00D57406 /* LaunchScreen.storyboard */; };
-		B6AD275E1D880F5A00D57406 /* LYCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AD275D1D880F5A00D57406 /* LYCoverView.m */; };
+		B6E362111D90D6F600C398B5 /* UserInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E362101D90D6F600C398B5 /* UserInfoViewModel.m */; };
+		B6E362141D90DA0A00C398B5 /* LYWeiChatUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E362131D90DA0A00C398B5 /* LYWeiChatUserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +74,10 @@
 		B6AD274A1D880DBC00D57406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6AD274D1D880DBC00D57406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6AD274F1D880DBC00D57406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6AD275C1D880F5A00D57406 /* LYCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYCoverView.h; sourceTree = "<group>"; };
-		B6AD275D1D880F5A00D57406 /* LYCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCoverView.m; sourceTree = "<group>"; };
+		B6E3620F1D90D6F600C398B5 /* UserInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewModel.h; sourceTree = "<group>"; };
+		B6E362101D90D6F600C398B5 /* UserInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewModel.m; sourceTree = "<group>"; };
+		B6E362121D90DA0A00C398B5 /* LYWeiChatUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWeiChatUserInfo.h; sourceTree = "<group>"; };
+		B6E362131D90DA0A00C398B5 /* LYWeiChatUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYWeiChatUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,13 +151,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		B642DBFC1D89492100E7FC83 /* ThirdLog */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ThirdLog;
-			sourceTree = "<group>";
-		};
 		B6AD27321D880DBC00D57406 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +171,7 @@
 		B6AD273D1D880DBC00D57406 /* ThirdTool_LogShare */ = {
 			isa = PBXGroup;
 			children = (
+				B6E3620E1D90D6EA00C398B5 /* 保存用户信息 */,
 				B60503C11D8FEEB90030A472 /* 网络请求 */,
 				B6AD27551D880EB000D57406 /* lib */,
 				B6AD275A1D880EB000D57406 /* Tools */,
@@ -246,21 +243,21 @@
 		B6AD275A1D880EB000D57406 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				B642DBFC1D89492100E7FC83 /* ThirdLog */,
-				B6AD275B1D880F4900D57406 /* ShareTool */,
 				B60503BD1D8FDADD0030A472 /* LYThirdTools.h */,
 				B60503BE1D8FDADD0030A472 /* LYThirdTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		B6AD275B1D880F4900D57406 /* ShareTool */ = {
+		B6E3620E1D90D6EA00C398B5 /* 保存用户信息 */ = {
 			isa = PBXGroup;
 			children = (
-				B6AD275C1D880F5A00D57406 /* LYCoverView.h */,
-				B6AD275D1D880F5A00D57406 /* LYCoverView.m */,
+				B6E3620F1D90D6F600C398B5 /* UserInfoViewModel.h */,
+				B6E362101D90D6F600C398B5 /* UserInfoViewModel.m */,
+				B6E362121D90DA0A00C398B5 /* LYWeiChatUserInfo.h */,
+				B6E362131D90DA0A00C398B5 /* LYWeiChatUserInfo.m */,
 			);
-			path = ShareTool;
+			path = "保存用户信息";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,11 +337,12 @@
 				B60503D41D8FEECC0030A472 /* AFNetworkReachabilityManager.m in Sources */,
 				B6AD27431D880DBC00D57406 /* AppDelegate.m in Sources */,
 				B60503BF1D8FDADD0030A472 /* LYThirdTools.m in Sources */,
+				B6E362141D90DA0A00C398B5 /* LYWeiChatUserInfo.m in Sources */,
 				B642DBFF1D89495900E7FC83 /* LYConst.m in Sources */,
 				B6AD27401D880DBC00D57406 /* main.m in Sources */,
 				B60503D51D8FEECC0030A472 /* AFSecurityPolicy.m in Sources */,
+				B6E362111D90D6F600C398B5 /* UserInfoViewModel.m in Sources */,
 				B60503D61D8FEECC0030A472 /* AFURLRequestSerialization.m in Sources */,
-				B6AD275E1D880F5A00D57406 /* LYCoverView.m in Sources */,
 				B65B12A61D8FF39C00D4333F /* LYNetworking.m in Sources */,
 				B60503D71D8FEECC0030A472 /* AFURLResponseSerialization.m in Sources */,
 				B60503D81D8FEECC0030A472 /* AFURLSessionManager.m in Sources */,

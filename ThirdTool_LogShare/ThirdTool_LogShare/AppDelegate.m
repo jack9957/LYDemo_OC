@@ -29,8 +29,8 @@
     if ([url.host isEqualToString:@"qzapp"]) {
         // 从qq跳回来的
         
-    }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"]){
-        // 从微信登录 | 分享 跳回来的
+    }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"] || [url.host isEqualToString:@"pay"]){
+        // 从 微信登录 || 微信分享 || 微信支付 跳回来的
         [WXApi handleOpenURL:url delegate:[LYThirdTools sharedInstance]];
     }else if ([url.host isEqualToString:@"safepay"]){
         // 这是从支付宝跳回来的
