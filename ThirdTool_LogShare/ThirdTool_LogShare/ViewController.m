@@ -79,6 +79,7 @@
 #pragma mark - 三方工具的代理方法
 - (void)thirdTool:(LYThirdTools *)tool weichatResult:(NSDictionary *)result
 {
+    // 
     NSLog(@"微信回调的结果是: %@", result);
 }
 
