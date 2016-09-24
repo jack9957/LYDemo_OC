@@ -17,7 +17,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     [[LYThirdTools sharedInstance] setupThirdTools];
     
@@ -26,8 +25,9 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    if ([url.host isEqualToString:@"qzapp"]) {
-        // 从qq跳回来的
+    if ([url.host isEqualToString:@"response_from_qq"] || [url.host isEqualToString:@"qzapp"] ) {
+        // 从qq分享 跳回来的
+        [TencentOAuth HandleOpenURL:url];
         
     }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"] || [url.host isEqualToString:@"pay"]){
         // 从 微信登录 || 微信分享 || 微信支付 跳回来的
@@ -35,9 +35,9 @@
     }else if ([url.host isEqualToString:@"safepay"]){
         // 这是从支付宝跳回来的
         
-    }else if ([url.host isEqualToString:@""]){
-        // 这是从新浪微博跳回来的
-        
+    }else if ([url.host isEqualToString:@"response"]){
+        // 这是从新浪微博跳回来的(新浪微博就这一个host)
+        [WeiboSDK handleOpenURL:url delegate:[LYThirdTools sharedInstance]];
     }
     return YES;
 }

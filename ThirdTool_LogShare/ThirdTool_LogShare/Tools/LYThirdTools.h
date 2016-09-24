@@ -9,7 +9,11 @@
 // 这是管理微信、微博、QQ的类，包括初始化，结果回调等
 
 #import <Foundation/Foundation.h>
-#import "WXApi.h"
+#import "WXApi.h"  // sdkversion=1.7.3
+#import "WeiboSDK.h"  // sdkversion=2.5
+#import "TencentOpenAPI/TencentOAuth.h" // sdkversion=3.1.0
+#import "TencentOpenAPI/QQApiInterface.h" // QQ分享
+
 @class LYThirdTools;
 @class LYToolModel;
 
@@ -56,12 +60,19 @@ typedef NS_ENUM(NSUInteger, LYThirdPayPlatForm) {
 @protocol LYThirdToolsDelegate <NSObject>
 
 @optional
+
+/**
+ 微信结果回调方法
+
+ @param tool   三方工具类
+ @param result 微信的回调结果
+ */
 - (void)thirdTool:(LYThirdTools *)tool weichatResult:(NSDictionary *)result;
 
 @end
 
 
-@interface LYThirdTools : NSObject<WXApiDelegate>
+@interface LYThirdTools : NSObject<WXApiDelegate,WeiboSDKDelegate>
 
 /** LYThirdToolsDelegate */
 @property (nonatomic, assign) id<LYThirdToolsDelegate>delegate;

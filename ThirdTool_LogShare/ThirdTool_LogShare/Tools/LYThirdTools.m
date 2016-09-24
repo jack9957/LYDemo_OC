@@ -13,8 +13,16 @@ static NSString *kAuthScope = @"snsapi_message,snsapi_userinfo,snsapi_friend,sns
 // 微信用户access_token时候设置微信回调标识
 static NSString *kAuthState = @"liyang_custom";
 
+@interface LYThirdTools ()<TencentLoginDelegate>
+
+// TencentOAuth实现授权登录逻辑以及相关开放接口的请求调用
+@property (nonatomic, strong) TencentOAuth *tencentOAuth;
+
+@end
+
 @implementation LYThirdTools
 
+#pragma mark - 初始化方法
 + (instancetype)sharedInstance
 {
     static LYThirdTools *sharedInstance;
@@ -26,15 +34,17 @@ static NSString *kAuthState = @"liyang_custom";
     });
     return sharedInstance;
 }
-
+#pragma mark - 注册
 /**
  初始化，注册
  */
 - (void)setupThirdTools
 {
     [WXApi registerApp:weichatAppID withDescription:@"微信初始化"];
+    [WeiboSDK registerApp:sinaAppID];
+//    [[TencentOAuth alloc] initWithAppId:qqAppID andDelegate:nil];
 }
-
+#pragma mark - 检查有木有安装过：微信，微博，qq
 /** 检查有木有安装过：微信，微博，qq */
 - (BOOL)installThirdApp:(LYThirdLog)thirdApp
 {
@@ -49,6 +59,7 @@ static NSString *kAuthState = @"liyang_custom";
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:tempStr]];
 }
 
+#pragma mark - 分享
 /**
  分享
 
@@ -58,7 +69,7 @@ static NSString *kAuthState = @"liyang_custom";
 - (void)thirdToolsShareModel:(LYToolModel *)model toplatForm:(LYSharePlatForm)platForm
 {
     if (platForm == WeiChatSession || platForm == WeiChatTimeline) {
-        // 分享到微信的
+        // 分享给微信好友，或者，分享到朋友圈
         WXMediaMessage *mediaMessage = [WXMediaMessage message];
         mediaMessage.title = model.shareTitle;
         mediaMessage.description = model.shareSubTitle;
@@ -73,10 +84,35 @@ static NSString *kAuthState = @"liyang_custom";
         toReq.message = mediaMessage;
         toReq.scene = platForm;
         [WXApi sendReq:toReq];
+        
+    }else if (platForm == QQ){
+        // 分享到QQ (若用户安装客户端，调用客户端；若没有，调网页)
+        NSData *data = UIImageJPEGRepresentation(model.shareImg, 0.2);
+        NSURL *url = [NSURL URLWithString:model.shareUrl];
+        
+        QQApiNewsObject* img = [QQApiNewsObject objectWithURL:url title:model.shareTitle description:model.shareSubTitle previewImageData:data];
+        SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:img];
+        QQApiSendResultCode sent = [QQApiInterface sendReq:req];
+        NSLog(@"结果是:%d",sent);
+    }else if (platForm == Sina){
+        // 分享到新浪
+        
+        // 微博客户端程序和第三方应用之间传递的消息结构
+        WBMessageObject *message = [WBMessageObject message];
+        WBWebpageObject *webpage = [WBWebpageObject object];
+        webpage.objectID = @"identifier1";
+        webpage.title = NSLocalizedString(model.shareTitle, nil);
+        webpage.description = [NSString stringWithFormat:NSLocalizedString(model.shareSubTitle, nil), [[NSDate date] timeIntervalSince1970]];
+        webpage.thumbnailData = UIImageJPEGRepresentation(model.shareImg, 0.2);
+        webpage.webpageUrl = model.shareUrl;
+        message.mediaObject = webpage;
+        
+        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];
+        [WeiboSDK sendRequest:request];
     }
 }
 
-
+#pragma mark - 登录
 /** 登录的方法 */
 - (void)thirdToolsLog:(LYThirdLog)thirdLog
 {
@@ -89,9 +125,44 @@ static NSString *kAuthState = @"liyang_custom";
         authReq.state = kAuthState;
         // 1-2、向微信发送消息
         [WXApi sendReq:authReq];
+    }else if (thirdLog == QQLog){
+        // QQ登录
+        // 获取用户的那些信息
+        NSArray* permissions = [NSArray arrayWithObjects:
+                                kOPEN_PERMISSION_GET_USER_INFO,
+                                kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
+                                kOPEN_PERMISSION_ADD_SHARE,
+                                nil];
+        [self.tencentOAuth authorize:permissions inSafari:NO];
+    }else if (thirdLog == SinaLog){
+        // 微博登录
+        WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+        request.redirectURI = sinaRedirectURI; // 注意这个地方要个高级信息的设置的url一样
+        request.scope = @"all";
+        request.userInfo = @{@"SSO_From": @"SendMessageToWeiboViewController",
+                             @"Other_Info_1": [NSNumber numberWithInt:123],
+                             @"Other_Info_2": @[@"obj1", @"obj2"],
+                             @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+        [WeiboSDK sendRequest:request];
     }
 }
 
+#pragma mark - 支付
+- (void)thirdPayWith:(NSDictionary *)dict platForm:(LYThirdPayPlatForm)platForm
+{
+    if (platForm == WeiChatPay) {
+        // 微信支付
+        PayReq* req             = [[PayReq alloc] init];
+        req.partnerId           = [dict objectForKey:@"partnerid"];
+        req.prepayId            = [dict objectForKey:@"prepayid"];
+        req.nonceStr            = [dict objectForKey:@"noncestr"];
+        req.timeStamp           = [[dict objectForKey:@"timestamp"] intValue];
+        req.package             = [dict objectForKey:@"package"];
+        req.sign                = [dict objectForKey:@"sign"];
+        req.nonceStr = [dict objectForKey:@"noncestr"];
+        [WXApi sendReq:req];
+    }
+}
 
 #pragma mark - 微信登录、分享、支付的回调方法
 
@@ -156,7 +227,6 @@ static NSString *kAuthState = @"liyang_custom";
         return;
     }
 }
-
 /** 请求微信用户信息资料 */
 - (void)getWeiChatUserInfoWithDic:(NSDictionary *)responseObject
 {
@@ -180,22 +250,72 @@ static NSString *kAuthState = @"liyang_custom";
     }];
 }
 
-#pragma mark - 支付
-- (void)thirdPayWith:(NSDictionary *)dict platForm:(LYThirdPayPlatForm)platForm
+#pragma mark - QQ分享事件回调方法
+
+// 必须实现的3个方法
+- (void)tencentDidLogin
 {
-    if (platForm == WeiChatPay) {
-        // 微信支付
-        PayReq* req             = [[PayReq alloc] init];
-        req.partnerId           = [dict objectForKey:@"partnerid"];
-        req.prepayId            = [dict objectForKey:@"prepayid"];
-        req.nonceStr            = [dict objectForKey:@"noncestr"];
-        req.timeStamp           = [[dict objectForKey:@"timestamp"] intValue];
-        req.package             = [dict objectForKey:@"package"];
-        req.sign                = [dict objectForKey:@"sign"];
-        req.nonceStr = [dict objectForKey:@"noncestr"];
-        [WXApi sendReq:req];
+    NSLog(@"QQ登陆成功");
+    [self.tencentOAuth getUserInfo];
+}
+- (void)tencentDidNotLogin:(BOOL)cancelled
+{
+    NSLog(@"QQ登录失败");
+}
+- (void)tencentDidNotNetWork
+{
+    NSLog(@"QQ登录碰见网络问题");
+}
+- (void)getUserInfoResponse:(APIResponse *)response
+{
+    if (response.retCode == URLREQUEST_SUCCEED && kOpenSDKErrorSuccess == response.detailRetCode) {
+        NSMutableString *str = [NSMutableString stringWithFormat:@""];
+        for (id key in response.jsonResponse) {
+            [str appendString: [NSString stringWithFormat:
+                                @"%@:%@\n", key, [response.jsonResponse objectForKey:key]]];
+        }
+        NSLog(@"%@", str);
+        
+    }else{
+        NSString *errMsg = [NSString stringWithFormat:@"errorMsg:%@\n%@",
+                            response.errorMsg, [response.jsonResponse objectForKey:@"msg"]];
+        NSLog(@"%@", errMsg);
     }
 }
+
+#pragma mark - 微博的回调方法
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request
+{
+}
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
+    if ([response isKindOfClass:[WBSendMessageToWeiboResponse class]]) {
+        // 这是分享的回调方法
+        WBSendMessageToWeiboResponse *sendMessageResp = (WBSendMessageToWeiboResponse *)response;
+        NSLog(@"%@", sendMessageResp.userInfo);
+    }else if ([response isKindOfClass:[WBAuthorizeResponse class]]) {
+        // 这是登录的回调方法
+        WBAuthorizeResponse *authResp = (WBAuthorizeResponse *)response;
+        // 返回值中有access_token和uid，我们通过这两个去获取用户的个人信息
+        [LYNetworking updateBaseUrl:@"https://api.weibo.com"];
+        NSDictionary *dic = @{
+                        @"access_token":[authResp.userInfo objectForKey:@"access_token"],
+                        @"uid":[authResp.userInfo objectForKey:@"uid"]
+                              };
+        [LYNetworking getWithUrl:@"2/users/show.json" params:dic progress:nil success:^(id  _Nonnull responseObject) {
+            //
+            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                NSLog(@"%@", responseObject);
+            }else{
+                NSLog(@"获取用户信息失败,返回格式不是json,而是:%@", responseObject);
+            }
+        } failure:^(NSError * _Nonnull error) {
+            //
+            NSLog(@"获取用户信息失败: %@",error);
+        }];
+    }
+}
+
 
 @end
 

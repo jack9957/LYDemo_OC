@@ -27,25 +27,29 @@
 #pragma mark - 登录
 - (IBAction)qq:(id)sender
 {
-    NSLog(@"%@",qqAppID);
+   [[LYThirdTools sharedInstance] thirdToolsLog:QQLog];
 }
+
 - (IBAction)weichat:(id)sender
 {
     [[LYThirdTools sharedInstance] thirdToolsLog:WeiChatLog];
 }
 - (IBAction)sina:(id)sender
 {
-    
+    [[LYThirdTools sharedInstance] thirdToolsLog:SinaLog];
 }
 
 #pragma mark - 分享
 - (IBAction)sinaShare:(id)sender
 {
+    [[LYThirdTools sharedInstance] thirdToolsShareModel:[LYToolModel toolModel] toplatForm:Sina];
 }
 - (IBAction)qqShare:(id)sender
 {
-    
+    LYToolModel *model = [LYToolModel toolModel];
+    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:QQ];
 }
+
 - (IBAction)weiChatShare:(id)sender
 {
     LYToolModel *model = [LYToolModel toolModel];
