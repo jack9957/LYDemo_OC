@@ -28,6 +28,7 @@
     if ([url.host isEqualToString:@"response_from_qq"] || [url.host isEqualToString:@"qzapp"] ) {
         // 从qq分享 跳回来的
         [TencentOAuth HandleOpenURL:url];
+//        [QQApiInterface handleOpenURL:url delegate:[LYThirdTools sharedInstance]];
         
     }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"] || [url.host isEqualToString:@"pay"]){
         // 从 微信登录 || 微信分享 || 微信支付 跳回来的

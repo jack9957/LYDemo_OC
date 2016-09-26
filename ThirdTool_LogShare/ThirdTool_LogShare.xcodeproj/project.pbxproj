@@ -536,7 +536,10 @@
 					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/weichat",
 					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/sina",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fobjc-arc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liyang.ThirdTool-LogShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f7ee026b-92db-4495-a68c-013e272e9109";
@@ -564,7 +567,10 @@
 					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/weichat",
 					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/sina",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fobjc-arc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liyang.ThirdTool-LogShare";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f7ee026b-92db-4495-a68c-013e272e9109";

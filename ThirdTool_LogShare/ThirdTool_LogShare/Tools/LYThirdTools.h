@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger, LYThirdPayPlatForm) {
 @end
 
 
-@interface LYThirdTools : NSObject<WXApiDelegate,WeiboSDKDelegate,TencentSessionDelegate>
+@interface LYThirdTools : NSObject<WXApiDelegate,WeiboSDKDelegate,TencentSessionDelegate,QQApiInterfaceDelegate>
 
 /** LYThirdToolsDelegate */
 @property (nonatomic, assign) id<LYThirdToolsDelegate>delegate;
