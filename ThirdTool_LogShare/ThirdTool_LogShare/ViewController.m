@@ -60,8 +60,6 @@
 #pragma mark - 微信支付
 - (IBAction)weiChatPay:(id)sender
 {
-    // com.yesing.advertsplayer
-    // com.liyang.ThirdTool-LogShare
     // 1、从服务器拿到统一订单号，一般返回的数据是json，如果不是，自己处理下
     NSDictionary *dic = @{
                           @"orderids":@"123456789",
@@ -80,12 +78,20 @@
     }];
 }
 
-#pragma mark - 三方工具的代理方法
+#pragma mark - 微信登录、分享、支付的代理方法
 - (void)thirdTool:(LYThirdTools *)tool weichatResult:(NSDictionary *)result
 {
     // 
     NSLog(@"微信回调的结果是: %@", result);
 }
-
-
+#pragma mark - 新浪的回调结果
+- (void)thirdTool:(LYThirdTools *)tool sinaResult:(NSDictionary *)result
+{
+    NSLog(@"新浪的回调结果: %@",result);
+}
+#pragma mark - QQ的回调结果
+- (void)thirdTool:(LYThirdTools *)tool qqResult:(NSDictionary *)result
+{
+    NSLog(@"QQ的回调结果: %@",result);
+}
 @end

@@ -13,7 +13,7 @@ static NSString *kAuthScope = @"snsapi_message,snsapi_userinfo,snsapi_friend,sns
 // 微信用户access_token时候设置微信回调标识
 static NSString *kAuthState = @"liyang_custom";
 
-@interface LYThirdTools ()<TencentLoginDelegate>
+@interface LYThirdTools ()
 
 // TencentOAuth实现授权登录逻辑以及相关开放接口的请求调用
 @property (nonatomic, strong) TencentOAuth *tencentOAuth;
@@ -42,7 +42,7 @@ static NSString *kAuthState = @"liyang_custom";
 {
     [WXApi registerApp:weichatAppID withDescription:@"微信初始化"];
     [WeiboSDK registerApp:sinaAppID];
-//    [[TencentOAuth alloc] initWithAppId:qqAppID andDelegate:nil];
+    self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:qqAppID andDelegate:[LYThirdTools sharedInstance]];
 }
 #pragma mark - 检查有木有安装过：微信，微博，qq
 /** 检查有木有安装过：微信，微博，qq */
@@ -89,11 +89,10 @@ static NSString *kAuthState = @"liyang_custom";
         // 分享到QQ (若用户安装客户端，调用客户端；若没有，调网页)
         NSData *data = UIImageJPEGRepresentation(model.shareImg, 0.2);
         NSURL *url = [NSURL URLWithString:model.shareUrl];
-        
-        QQApiNewsObject* img = [QQApiNewsObject objectWithURL:url title:model.shareTitle description:model.shareSubTitle previewImageData:data];
+        QQApiNewsObject *img = [QQApiNewsObject objectWithURL:url title:model.shareTitle description:model.shareSubTitle previewImageData:data];        
         SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:img];
         QQApiSendResultCode sent = [QQApiInterface sendReq:req];
-        NSLog(@"结果是:%d",sent);
+        [self handleSendResult:sent];
     }else if (platForm == Sina){
         // 分享到新浪
         
@@ -128,7 +127,7 @@ static NSString *kAuthState = @"liyang_custom";
     }else if (thirdLog == QQLog){
         // QQ登录
         // 获取用户的那些信息
-        NSArray* permissions = [NSArray arrayWithObjects:
+        NSArray *permissions = [NSArray arrayWithObjects:
                                 kOPEN_PERMISSION_GET_USER_INFO,
                                 kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
                                 kOPEN_PERMISSION_ADD_SHARE,
@@ -165,7 +164,6 @@ static NSString *kAuthState = @"liyang_custom";
 }
 
 #pragma mark - 微信登录、分享、支付的回调方法
-
 /*! @brief 发送一个sendReq后，收到微信的回应
  *
  * 收到一个来自微信的处理结果。调用一次sendReq后会收到onResp。
@@ -250,8 +248,7 @@ static NSString *kAuthState = @"liyang_custom";
     }];
 }
 
-#pragma mark - QQ分享事件回调方法
-
+#pragma mark - QQ事件回调方法
 // 必须实现的3个方法
 - (void)tencentDidLogin
 {
@@ -269,12 +266,10 @@ static NSString *kAuthState = @"liyang_custom";
 - (void)getUserInfoResponse:(APIResponse *)response
 {
     if (response.retCode == URLREQUEST_SUCCEED && kOpenSDKErrorSuccess == response.detailRetCode) {
-        NSMutableString *str = [NSMutableString stringWithFormat:@""];
-        for (id key in response.jsonResponse) {
-            [str appendString: [NSString stringWithFormat:
-                                @"%@:%@\n", key, [response.jsonResponse objectForKey:key]]];
+        
+        if ([self.delegate respondsToSelector:@selector(thirdTool:qqResult:)]) {
+            [self.delegate thirdTool:self qqResult:@{@"msg":@"登录成功",@"result":response.jsonResponse}];
         }
-        NSLog(@"%@", str);
         
     }else{
         NSString *errMsg = [NSString stringWithFormat:@"errorMsg:%@\n%@",
@@ -282,8 +277,55 @@ static NSString *kAuthState = @"liyang_custom";
         NSLog(@"%@", errMsg);
     }
 }
-
-#pragma mark - 微博的回调方法
+- (void)handleSendResult:(QQApiSendResultCode)sendResult
+{
+    switch (sendResult)
+    {
+        case EQQAPIAPPNOTREGISTED:
+        {
+            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"App未注册" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+            [msgbox show];
+            break;
+        }
+        case EQQAPIMESSAGECONTENTINVALID:
+        case EQQAPIMESSAGECONTENTNULL:
+        case EQQAPIMESSAGETYPEINVALID:
+        {
+            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"发送参数错误" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+            [msgbox show];
+            break;
+        }
+        case EQQAPIQQNOTINSTALLED:
+        {
+            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"未安装手Q" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+            [msgbox show];
+            break;
+        }
+        case EQQAPIQQNOTSUPPORTAPI:
+        {
+            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"API接口不支持" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+            [msgbox show];
+            break;
+        }
+        case EQQAPISENDFAILD:
+        {
+            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"发送失败" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+            [msgbox show];
+            break;
+        }
+        case EQQAPIVERSIONNEEDUPDATE:
+        {
+            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"当前QQ版本太低，需要更新" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
+            [msgbox show];
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+}
+#pragma mark - 微博的回调方法（这两个方法都是必须实现的，一般只用到第二个）
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request
 {
 }
@@ -292,7 +334,9 @@ static NSString *kAuthState = @"liyang_custom";
     if ([response isKindOfClass:[WBSendMessageToWeiboResponse class]]) {
         // 这是分享的回调方法
         WBSendMessageToWeiboResponse *sendMessageResp = (WBSendMessageToWeiboResponse *)response;
-        NSLog(@"%@", sendMessageResp.userInfo);
+        if ([self.delegate respondsToSelector:@selector(thirdTool:sinaResult:)]) {
+            [self.delegate thirdTool:self sinaResult:@{@"msg":@"操作成功",@"result":sendMessageResp.userInfo}];
+        }
     }else if ([response isKindOfClass:[WBAuthorizeResponse class]]) {
         // 这是登录的回调方法
         WBAuthorizeResponse *authResp = (WBAuthorizeResponse *)response;
@@ -305,8 +349,14 @@ static NSString *kAuthState = @"liyang_custom";
         [LYNetworking getWithUrl:@"2/users/show.json" params:dic progress:nil success:^(id  _Nonnull responseObject) {
             //
             if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                NSLog(@"%@", responseObject);
+                
+                // 获取到个人信息
+                if ([self.delegate respondsToSelector:@selector(thirdTool:sinaResult:)]) {
+                    [self.delegate thirdTool:self sinaResult:@{@"msg":@"操作成功",@"result":responseObject}];
+                }
+                
             }else{
+                
                 NSLog(@"获取用户信息失败,返回格式不是json,而是:%@", responseObject);
             }
         } failure:^(NSError * _Nonnull error) {

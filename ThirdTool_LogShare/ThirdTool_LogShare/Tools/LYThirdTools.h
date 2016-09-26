@@ -11,11 +11,11 @@
 #import <Foundation/Foundation.h>
 #import "WXApi.h"  // sdkversion=1.7.3
 #import "WeiboSDK.h"  // sdkversion=2.5
-#import "TencentOpenAPI/TencentOAuth.h" // sdkversion=3.1.0
+#import "TencentOpenAPI/TencentOAuth.h" // sdkversion=3.1.0 登录
 #import "TencentOpenAPI/QQApiInterface.h" // QQ分享
+#import "TencentOpenAPI/TencentApiInterface.h"
 
-@class LYThirdTools;
-@class LYToolModel;
+@class LYThirdTools,LYToolModel;
 
 /**
  分享
@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, LYSharePlatForm) {
 };
 
 /**
- 第三方登录
+ 登录
 
  - WeiChatLog: 微信登录
  - SinaLog:    微博登录
@@ -62,17 +62,32 @@ typedef NS_ENUM(NSUInteger, LYThirdPayPlatForm) {
 @optional
 
 /**
- 微信结果回调方法
+ 微信成功结果回调方法
 
  @param tool   三方工具类
  @param result 微信的回调结果
  */
 - (void)thirdTool:(LYThirdTools *)tool weichatResult:(NSDictionary *)result;
 
+/**
+ 新浪分享、登录成功的回调方法
+
+ @param tool   类
+ @param result 结果
+ */
+- (void)thirdTool:(LYThirdTools *)tool sinaResult:(NSDictionary *)result;
+
+/**
+ qq分享、登录成功的回调方法
+
+ @param tool   类本身
+ @param result 结果
+ */
+- (void)thirdTool:(LYThirdTools *)tool qqResult:(NSDictionary *)result;
 @end
 
 
-@interface LYThirdTools : NSObject<WXApiDelegate,WeiboSDKDelegate>
+@interface LYThirdTools : NSObject<WXApiDelegate,WeiboSDKDelegate,TencentSessionDelegate>
 
 /** LYThirdToolsDelegate */
 @property (nonatomic, assign) id<LYThirdToolsDelegate>delegate;

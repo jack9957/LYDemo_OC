@@ -11,11 +11,12 @@
 // 这个是申请的新浪OA授权
 UIKIT_EXTERN NSString * const sinaAppID;
 UIKIT_EXTERN NSString * const sinaAppSecret;
+// 这个在高级信息中，注意保持一致
 UIKIT_EXTERN NSString * const sinaRedirectURI;
 
 // 这个是申请的QQOA授权
 UIKIT_EXTERN NSString * const qqAppID;
-UIKIT_EXTERN NSString * const qqAppSecret;
+UIKIT_EXTERN NSString * const qqAppKey;
 
 // 这个是申请的微信OA授权
 UIKIT_EXTERN NSString * const weichatAppID;
