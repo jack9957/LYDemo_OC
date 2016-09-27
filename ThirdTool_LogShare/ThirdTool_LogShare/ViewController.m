@@ -53,8 +53,8 @@
 - (IBAction)weiChatShare:(id)sender
 {
     LYToolModel *model = [LYToolModel toolModel];
-    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:WeiChatSession];
-//    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:WeiChatTimeline];
+    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:WeiChatSession]; // 微信好友
+//    [[LYThirdTools sharedInstance] thirdToolsShareModel:model toplatForm:WeiChatTimeline]; // 微信朋友圈
 }
 
 #pragma mark - 微信支付
@@ -94,4 +94,7 @@
 {
     NSLog(@"QQ的回调结果: %@",result);
 }
+
+
+
 @end

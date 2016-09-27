@@ -91,8 +91,7 @@ static NSString *kAuthState = @"liyang_custom";
         NSURL *url = [NSURL URLWithString:model.shareUrl];
         QQApiNewsObject *img = [QQApiNewsObject objectWithURL:url title:model.shareTitle description:model.shareSubTitle previewImageData:data];        
         SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:img];
-        QQApiSendResultCode sent = [QQApiInterface sendReq:req];
-        [self handleSendResult:sent];
+        [QQApiInterface sendReq:req];
     }else if (platForm == Sina){
         // 分享到新浪
         
@@ -132,7 +131,7 @@ static NSString *kAuthState = @"liyang_custom";
                                 kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
                                 kOPEN_PERMISSION_ADD_SHARE,
                                 nil];
-        [self.tencentOAuth authorize:permissions inSafari:NO];
+        [self.tencentOAuth authorize:permissions];
     }else if (thirdLog == SinaLog){
         // 微博登录
         WBAuthorizeRequest *request = [WBAuthorizeRequest request];
@@ -172,57 +171,68 @@ static NSString *kAuthState = @"liyang_custom";
  */
 - (void)onResp:(BaseResp *)resp
 {
-    if (resp.errCode == 0) {
-        // 0代表操作成功
-        if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
-            // 微信分享
-            if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
-                [self.delegate thirdTool:self weichatResult:@{@"msg":@"分享成功"}];
-            }
-        }else if ([resp isKindOfClass:[SendAuthResp class]]){
-            // 微信登录
-            SendAuthResp *authResp = (SendAuthResp *)resp;
-            if (authResp.code) {
-                // 说明成功,通过下面的路径去拿access_token（调用凭证）和openid（用户唯一标识）
-                [LYNetworking updateBaseUrl:@"https://api.weixin.qq.com"];
-                NSDictionary *dic = @{
-                                      @"appid":weichatAppID,
-                                      @"secret":weichatAppSecret,
-                                      @"code":authResp.code,
-                                      @"grant_type":@"authorization_code"
-                                      };
-                [LYNetworking postWithUrl:@"sns/oauth2/access_token" params:dic progress:nil success:^(id  _Nonnull responseObject) {
-                    // 成功拿到access_token和openid,用这两个去请求用户信息
-                    if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                        [self getWeiChatUserInfoWithDic:responseObject];
-                    }else{
-                        NSLog(@"失败:%@", responseObject);
-                    }
-                } failure:^(NSError * _Nonnull error) {
-                    //
-                    NSLog(@"获取用户的access_token失败：原因是:%@", error);
-                }];
-            }
-        }else if ([resp isKindOfClass:[PayResp class]]){
-            // 微信支付
-            PayResp *payResp = (PayResp *)resp;
-            if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
-                [self.delegate thirdTool:self weichatResult:@{@"msg":@"支付成功",@"result":payResp.returnKey}];
+    if ([resp isKindOfClass:[QQBaseResp class]]) {
+        // 这个是qq的分享的回调代理
+        QQBaseResp *qqResp = (QQBaseResp *)resp;
+        if (qqResp.errorDescription == nil) {
+            if ([self.delegate respondsToSelector:@selector(thirdTool:qqResult:)]) {
+                [self.delegate thirdTool:self qqResult:@{@"msg":@"分享成功"}];
             }
         }
-        
-    }else if (resp.errCode == -2){
-        // -2是用户取消操作
-        if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
-            [self.delegate thirdTool:self weichatResult:@{@"msg":@"用户取消操作"}];
-        }
-        return;
     }else{
-        // 其他的错误码全是失败
-        if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
-            [self.delegate thirdTool:self weichatResult:@{@"msg":@"操作失败"}];
+        // 这个是微信的回调代理
+        if (resp.errCode == 0) {
+            // 0代表操作成功
+            if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+                // 微信分享
+                if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
+                    [self.delegate thirdTool:self weichatResult:@{@"msg":@"分享成功"}];
+                }
+            }else if ([resp isKindOfClass:[SendAuthResp class]]){
+                // 微信登录
+                SendAuthResp *authResp = (SendAuthResp *)resp;
+                if (authResp.code) {
+                    // 说明成功,通过下面的路径去拿access_token（调用凭证）和openid（用户唯一标识）
+                    [LYNetworking updateBaseUrl:@"https://api.weixin.qq.com"];
+                    NSDictionary *dic = @{
+                                          @"appid":weichatAppID,
+                                          @"secret":weichatAppSecret,
+                                          @"code":authResp.code,
+                                          @"grant_type":@"authorization_code"
+                                          };
+                    [LYNetworking postWithUrl:@"sns/oauth2/access_token" params:dic progress:nil success:^(id  _Nonnull responseObject) {
+                        // 成功拿到access_token和openid,用这两个去请求用户信息
+                        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                            [self getWeiChatUserInfoWithDic:responseObject];
+                        }else{
+                            NSLog(@"失败:%@", responseObject);
+                        }
+                    } failure:^(NSError * _Nonnull error) {
+                        //
+                        NSLog(@"获取用户的access_token失败：原因是:%@", error);
+                    }];
+                }
+            }else if ([resp isKindOfClass:[PayResp class]]){
+                // 微信支付
+                PayResp *payResp = (PayResp *)resp;
+                if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
+                    [self.delegate thirdTool:self weichatResult:@{@"msg":@"支付成功",@"result":payResp.returnKey}];
+                }
+            }
+            
+        }else if (resp.errCode == -2){
+            // -2是用户取消操作
+            if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
+                [self.delegate thirdTool:self weichatResult:@{@"msg":@"用户取消操作"}];
+            }
+            return;
+        }else{
+            // 其他的错误码全是失败
+            if ([self.delegate respondsToSelector:@selector(thirdTool:weichatResult:)]) {
+                [self.delegate thirdTool:self weichatResult:@{@"msg":@"操作失败"}];
+            }
+            return;
         }
-        return;
     }
 }
 /** 请求微信用户信息资料 */
@@ -249,6 +259,22 @@ static NSString *kAuthState = @"liyang_custom";
 }
 
 #pragma mark - QQ事件回调方法
+#pragma mark QQApiInterfaceDelegate的回调代理
+/**
+ 处理来至QQ的请求
+ */
+- (void)onReq:(QQBaseReq *)req
+{
+    
+}
+/**
+ 处理QQ在线状态的回调
+ */
+- (void)isOnlineResponse:(NSDictionary *)response
+{
+    
+}
+#pragma mark TencentSessionDelegate的回调代理
 // 必须实现的3个方法
 - (void)tencentDidLogin
 {
@@ -277,54 +303,7 @@ static NSString *kAuthState = @"liyang_custom";
         NSLog(@"%@", errMsg);
     }
 }
-- (void)handleSendResult:(QQApiSendResultCode)sendResult
-{
-    switch (sendResult)
-    {
-        case EQQAPIAPPNOTREGISTED:
-        {
-            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"App未注册" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-            [msgbox show];
-            break;
-        }
-        case EQQAPIMESSAGECONTENTINVALID:
-        case EQQAPIMESSAGECONTENTNULL:
-        case EQQAPIMESSAGETYPEINVALID:
-        {
-            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"发送参数错误" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-            [msgbox show];
-            break;
-        }
-        case EQQAPIQQNOTINSTALLED:
-        {
-            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"未安装手Q" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-            [msgbox show];
-            break;
-        }
-        case EQQAPIQQNOTSUPPORTAPI:
-        {
-            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"API接口不支持" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-            [msgbox show];
-            break;
-        }
-        case EQQAPISENDFAILD:
-        {
-            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"发送失败" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-            [msgbox show];
-            break;
-        }
-        case EQQAPIVERSIONNEEDUPDATE:
-        {
-            UIAlertView *msgbox = [[UIAlertView alloc] initWithTitle:@"Error" message:@"当前QQ版本太低，需要更新" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil];
-            [msgbox show];
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-}
+
 #pragma mark - 微博的回调方法（这两个方法都是必须实现的，一般只用到第二个）
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request
 {
@@ -365,7 +344,6 @@ static NSString *kAuthState = @"liyang_custom";
         }];
     }
 }
-
 
 @end
 

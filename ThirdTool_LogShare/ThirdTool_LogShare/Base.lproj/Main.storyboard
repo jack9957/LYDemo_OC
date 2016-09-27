@@ -22,48 +22,43 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyj-yd-zNe">
                                 <state key="normal" title="qq登录"/>
                                 <connections>
-                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XFm-ic-H3v"/>
+                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bwf-RP-BbI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRi-cn-m9S">
                                 <state key="normal" title="weichat分享"/>
                                 <connections>
-                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vDw-9H-85n"/>
-                                    <action selector="weiChatShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ax9-RA-fqq"/>
+                                    <action selector="weiChatShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W1s-F4-Jec"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-QI-HpY">
                                 <state key="normal" title="qq分享"/>
                                 <connections>
-                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0SV-FP-kJC"/>
-                                    <action selector="qqShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVI-HO-6Un"/>
+                                    <action selector="qqShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jEi-vp-TeS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC5-QB-Rgm">
                                 <state key="normal" title="weichat登录"/>
                                 <connections>
-                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ybJ-LJ-fta"/>
-                                    <action selector="weichat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x5z-yq-Ai2"/>
+                                    <action selector="weichat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DcF-15-yKo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-Hi-7ik">
                                 <state key="normal" title="sina登录"/>
                                 <connections>
-                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibN-OC-hS5"/>
-                                    <action selector="sina:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x01-ri-FCH"/>
+                                    <action selector="sina:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yv3-Gg-B7M"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPa-ou-mDU">
                                 <state key="normal" title="sina分享"/>
                                 <connections>
-                                    <action selector="qq:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eLO-TU-pKy"/>
-                                    <action selector="sinaShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fVu-3L-7e3"/>
+                                    <action selector="sinaShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UKU-nk-8Wf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-Jt-2Cu">
                                 <state key="normal" title="微信支付"/>
                                 <connections>
-                                    <action selector="weiChatPay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FrJ-1U-A1B"/>
+                                    <action selector="weiChatPay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5Q-a1-9UU"/>
                                 </connections>
                             </button>
                         </subviews>
