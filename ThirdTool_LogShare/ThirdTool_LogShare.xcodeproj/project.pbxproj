@@ -37,6 +37,11 @@
 		B6AD27491D880DBC00D57406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD27471D880DBC00D57406 /* Main.storyboard */; };
 		B6AD274B1D880DBC00D57406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6AD274A1D880DBC00D57406 /* Assets.xcassets */; };
 		B6AD274E1D880DBC00D57406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6AD274C1D880DBC00D57406 /* LaunchScreen.storyboard */; };
+		B6CF00CE1D9A4A9D008E4D1A /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6CF00CC1D9A4A9D008E4D1A /* AlipaySDK.bundle */; };
+		B6CF00CF1D9A4A9D008E4D1A /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CF00CD1D9A4A9D008E4D1A /* AlipaySDK.framework */; };
+		B6CF00D01D9A4C60008E4D1A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B60503B71D8FD89C0030A472 /* libc++.tbd */; };
+		B6CF00D21D9A4C89008E4D1A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CF00D11D9A4C89008E4D1A /* CFNetwork.framework */; };
+		B6CF00D41D9A4C95008E4D1A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CF00D31D9A4C95008E4D1A /* CoreMotion.framework */; };
 		B6E362111D90D6F600C398B5 /* UserInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E362101D90D6F600C398B5 /* UserInfoViewModel.m */; };
 		B6E362141D90DA0A00C398B5 /* LYWeiChatUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E362131D90DA0A00C398B5 /* LYWeiChatUserInfo.m */; };
 		B6E5B91D1D996834001228C0 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6E5B91B1D996834001228C0 /* TencentOpenApi_IOS_Bundle.bundle */; };
@@ -105,6 +110,10 @@
 		B6AD274A1D880DBC00D57406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6AD274D1D880DBC00D57406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6AD274F1D880DBC00D57406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6CF00CC1D9A4A9D008E4D1A /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		B6CF00CD1D9A4A9D008E4D1A /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		B6CF00D11D9A4C89008E4D1A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B6CF00D31D9A4C95008E4D1A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		B6E3620F1D90D6F600C398B5 /* UserInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewModel.h; sourceTree = "<group>"; };
 		B6E362101D90D6F600C398B5 /* UserInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewModel.m; sourceTree = "<group>"; };
 		B6E362121D90DA0A00C398B5 /* LYWeiChatUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYWeiChatUserInfo.h; sourceTree = "<group>"; };
@@ -118,7 +127,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CF00D41D9A4C95008E4D1A /* CoreMotion.framework in Frameworks */,
+				B6CF00D21D9A4C89008E4D1A /* CFNetwork.framework in Frameworks */,
 				B696571B1D99751700783BE0 /* ImageIO.framework in Frameworks */,
+				B6CF00CF1D9A4A9D008E4D1A /* AlipaySDK.framework in Frameworks */,
 				B6E5B91E1D996834001228C0 /* TencentOpenAPI.framework in Frameworks */,
 				B61427161D93813D001878A6 /* CoreText.framework in Frameworks */,
 				B61427141D93812F001878A6 /* QuartzCore.framework in Frameworks */,
@@ -126,6 +138,7 @@
 				B637C45E1D928F9D00E6DB27 /* CoreGraphics.framework in Frameworks */,
 				B60503BC1D8FD8AD0030A472 /* Security.framework in Frameworks */,
 				B60503BA1D8FD8A70030A472 /* CoreTelephony.framework in Frameworks */,
+				B6CF00D01D9A4C60008E4D1A /* libc++.tbd in Frameworks */,
 				B696571C1D99757900783BE0 /* libc++abi.tbd in Frameworks */,
 				B637C4621D928FBB00E6DB27 /* libstdc++.tbd in Frameworks */,
 				B637C4601D928FAD00E6DB27 /* libsqlite3.tbd in Frameworks */,
@@ -142,6 +155,8 @@
 		B60503B01D8FD86D0030A472 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF00D31D9A4C95008E4D1A /* CoreMotion.framework */,
+				B6CF00D11D9A4C89008E4D1A /* CFNetwork.framework */,
 				B696571A1D99751700783BE0 /* ImageIO.framework */,
 				B69657181D99747F00783BE0 /* libc++abi.tbd */,
 				B61427151D93813D001878A6 /* CoreText.framework */,
@@ -249,6 +264,7 @@
 		B6AD27551D880EB000D57406 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				B6CF00CB1D9A309A008E4D1A /* ali */,
 				B6AD27571D880EB000D57406 /* qq */,
 				B6AD27581D880EB000D57406 /* sina */,
 				B6AD27591D880EB000D57406 /* weichat */,
@@ -303,6 +319,15 @@
 				B60503BE1D8FDADD0030A472 /* LYThirdTools.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		B6CF00CB1D9A309A008E4D1A /* ali */ = {
+			isa = PBXGroup;
+			children = (
+				B6CF00CC1D9A4A9D008E4D1A /* AlipaySDK.bundle */,
+				B6CF00CD1D9A4A9D008E4D1A /* AlipaySDK.framework */,
+			);
+			path = ali;
 			sourceTree = "<group>";
 		};
 		B6E3620E1D90D6EA00C398B5 /* 保存用户信息 */ = {
@@ -376,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CF00CE1D9A4A9D008E4D1A /* AlipaySDK.bundle in Resources */,
 				B6AD274E1D880DBC00D57406 /* LaunchScreen.storyboard in Resources */,
 				B61427271D9386D8001878A6 /* WeiboSDK.bundle in Resources */,
 				B6AD274B1D880DBC00D57406 /* Assets.xcassets in Resources */,
@@ -525,6 +551,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/qq",
+					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/ali",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ThirdTool_LogShare/PrefixHeader.pch";
@@ -556,6 +583,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/qq",
+					"$(PROJECT_DIR)/ThirdTool_LogShare/lib/ali",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ThirdTool_LogShare/PrefixHeader.pch";

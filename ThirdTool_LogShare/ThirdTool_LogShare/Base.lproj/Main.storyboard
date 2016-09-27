@@ -61,13 +61,22 @@
                                     <action selector="weiChatPay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5Q-a1-9UU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Peu-bM-csL">
+                                <frame key="frameInset" minX="163" minY="525" width="46" height="30"/>
+                                <state key="normal" title="支付宝支付"/>
+                                <connections>
+                                    <action selector="alipay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BDo-7M-zaf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Peu-bM-csL" firstAttribute="centerX" secondItem="jmf-Jt-2Cu" secondAttribute="centerX" id="FEe-qi-CNz"/>
                             <constraint firstItem="uyj-yd-zNe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="235" id="FaR-mX-exk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yPa-ou-mDU" secondAttribute="trailing" constant="10" id="KCo-y8-UTy"/>
                             <constraint firstItem="uyj-yd-zNe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KhT-2e-1FF"/>
                             <constraint firstItem="yPa-ou-mDU" firstAttribute="centerY" secondItem="n6O-QI-HpY" secondAttribute="centerY" id="MzS-YO-SYV"/>
+                            <constraint firstItem="Peu-bM-csL" firstAttribute="top" secondItem="jmf-Jt-2Cu" secondAttribute="bottom" constant="26" id="PUW-Cy-zjM"/>
                             <constraint firstItem="n6O-QI-HpY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="QUx-Vl-tah"/>
                             <constraint firstItem="jmf-Jt-2Cu" firstAttribute="top" secondItem="KTm-Hi-7ik" secondAttribute="bottom" constant="33" id="acn-Qf-1dP"/>
                             <constraint firstItem="aC5-QB-Rgm" firstAttribute="centerX" secondItem="uyj-yd-zNe" secondAttribute="centerX" id="hC6-lj-MG2"/>

@@ -9,6 +9,7 @@
 // 这是管理微信、微博、QQ的类，包括初始化，结果回调等
 
 #import <Foundation/Foundation.h>
+#import <AlipaySDK/AlipaySDK.h> // SDKVersion = 15.2.0
 #import "WXApi.h"  // sdkversion=1.7.3
 #import "WeiboSDK.h"  // sdkversion=2.5
 #import "TencentOpenAPI/TencentOAuth.h" // sdkversion=3.1.0 登录

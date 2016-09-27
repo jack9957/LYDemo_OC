@@ -157,8 +157,13 @@ static NSString *kAuthState = @"liyang_custom";
         req.timeStamp           = [[dict objectForKey:@"timestamp"] intValue];
         req.package             = [dict objectForKey:@"package"];
         req.sign                = [dict objectForKey:@"sign"];
-        req.nonceStr = [dict objectForKey:@"noncestr"];
         [WXApi sendReq:req];
+    }else if (platForm == AliPay){
+        // 支付宝支付
+        NSString *orderString = [dict objectForKey:@"orderString"];
+        [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+            NSLog(@"reslut = %@",resultDic);
+        }];
     }
 }
 

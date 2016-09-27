@@ -8,6 +8,9 @@
 
 /** 这里存放各个平常申请到的账号信息 */
 
+// 应用本身的Scheme
+UIKIT_EXTERN NSString * const appScheme;
+
 // 这个是申请的新浪OA授权
 UIKIT_EXTERN NSString * const sinaAppID;
 UIKIT_EXTERN NSString * const sinaAppSecret;
@@ -21,4 +24,7 @@ UIKIT_EXTERN NSString * const qqAppKey;
 // 这个是申请的微信OA授权
 UIKIT_EXTERN NSString * const weichatAppID;
 UIKIT_EXTERN NSString * const weichatAppSecret;
+
+// 这个是支付宝的相关信息
+UIKIT_EXTERN NSString * const aliAppId;
 

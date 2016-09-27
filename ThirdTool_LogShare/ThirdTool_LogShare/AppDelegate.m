@@ -37,12 +37,14 @@
     }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"] || [url.host isEqualToString:@"pay"]){
         // 从 微信登录 || 微信分享 || 微信支付 跳回来的
         [WXApi handleOpenURL:url delegate:[LYThirdTools sharedInstance]];
-    }else if ([url.host isEqualToString:@"safepay"]){
-        // 这是从支付宝跳回来的
-        
     }else if ([url.host isEqualToString:@"response"]){
         // 这是从新浪微博跳回来的(新浪微博就这一个host)
         [WeiboSDK handleOpenURL:url delegate:[LYThirdTools sharedInstance]];
+    }else if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"支付宝钱包result = %@",resultDic);
+        }];
     }
     return YES;
 }
