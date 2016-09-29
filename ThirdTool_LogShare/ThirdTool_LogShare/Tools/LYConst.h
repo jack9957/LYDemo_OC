@@ -26,5 +26,6 @@ UIKIT_EXTERN NSString * const weichatAppID;
 UIKIT_EXTERN NSString * const weichatAppSecret;
 
 // 这个是支付宝的相关信息
-UIKIT_EXTERN NSString * const aliAppId;
-
+UIKIT_EXTERN NSString * const aliAppId; // 应用ID
+UIKIT_EXTERN NSString * const aliPrivateKey; // 应用私钥，pkcs8格式
+UIKIT_EXTERN NSString * const aliNotify_url; // 支付宝服务器主动通知商户服务器里指定的页面http/https路径。建议商户使用https;这里要和填写应用时候填写的信息一致

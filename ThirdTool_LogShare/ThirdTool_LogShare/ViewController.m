@@ -77,11 +77,9 @@
         NSLog(@"%@", error);
     }];
 }
-- (IBAction)alipay:(id)sender {
-    NSString *orderString = @"从服务端请求订单信息";
-    
-    
-    [[LYThirdTools sharedInstance] thirdPayWith:@{@"orderString":orderString} platForm:AliPay];
+- (IBAction)alipay:(id)sender
+{
+    [[LYThirdTools sharedInstance] thirdPayWith:@{@"order_title":@"商品标题",@"order_no":@"ZQLM3O56MJD4SK3",@"order_amount":@"1.00"} platForm:AliPay];
 }
 
 #pragma mark - 微信登录、分享、支付的代理方法

@@ -108,7 +108,12 @@ typedef NS_ENUM(NSUInteger, LYThirdPayPlatForm) {
 /** 登录的方法 */
 - (void)thirdToolsLog:(LYThirdLog)thirdLog;
 
-/** 支付的方法 */
+/**
+ 支付的方法
+
+ @param payDic   需要添加的支付信息(weichat,不用我们操心；ali：必须有的3个key(order_title:订单标题 order_no:订单号 order_amount:总价格))
+ @param platForm 选择支付方式
+ */
 - (void)thirdPayWith:(NSDictionary *)payDic platForm:(LYThirdPayPlatForm)platForm;
 
 @end
