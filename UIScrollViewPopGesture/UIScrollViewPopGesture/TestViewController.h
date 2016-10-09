@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TestViewController.h
 //  UIScrollViewPopGesture
 //
 //  Created by liyang on 16/10/9.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TestViewController : UIViewController
 
 @end
-
