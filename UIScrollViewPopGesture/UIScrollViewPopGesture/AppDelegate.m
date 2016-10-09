@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainController.h"
+#import "LYNavigationController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,13 +17,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:[[MainController alloc] init]];
+    
+    LYNavigationController *nc = [[LYNavigationController alloc] initWithRootViewController:[[MainController alloc] init]];
+    
     self.window.rootViewController = nc;
     
     [self.window makeKeyAndVisible];
+    
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

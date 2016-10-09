@@ -14,6 +14,8 @@
 		B60E4A6A1DAA23C1007FB3F2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60E4A691DAA23C1007FB3F2 /* TestViewController.m */; };
 		B60E4A6D1DAA278C007FB3F2 /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60E4A6C1DAA278C007FB3F2 /* MainController.m */; };
 		B60E4A751DAA2CD2007FB3F2 /* UINavigationController+LYPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = B60E4A741DAA2CD2007FB3F2 /* UINavigationController+LYPopGesture.m */; };
+		B60E4A781DAA3865007FB3F2 /* LYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60E4A771DAA3865007FB3F2 /* LYNavigationController.m */; };
+		B60E4A7B1DAA3BA3007FB3F2 /* T2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60E4A7A1DAA3BA3007FB3F2 /* T2ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,10 @@
 		B60E4A6C1DAA278C007FB3F2 /* MainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
 		B60E4A731DAA2CD2007FB3F2 /* UINavigationController+LYPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+LYPopGesture.h"; sourceTree = "<group>"; };
 		B60E4A741DAA2CD2007FB3F2 /* UINavigationController+LYPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+LYPopGesture.m"; sourceTree = "<group>"; };
+		B60E4A761DAA3865007FB3F2 /* LYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNavigationController.h; sourceTree = "<group>"; };
+		B60E4A771DAA3865007FB3F2 /* LYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavigationController.m; sourceTree = "<group>"; };
+		B60E4A791DAA3BA3007FB3F2 /* T2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = T2ViewController.h; sourceTree = "<group>"; };
+		B60E4A7A1DAA3BA3007FB3F2 /* T2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = T2ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +71,14 @@
 				B60E4A721DAA2CA7007FB3F2 /* LYScrollViewPopGesture */,
 				B60E4A541DAA20F4007FB3F2 /* AppDelegate.h */,
 				B60E4A551DAA20F4007FB3F2 /* AppDelegate.m */,
+				B60E4A761DAA3865007FB3F2 /* LYNavigationController.h */,
+				B60E4A771DAA3865007FB3F2 /* LYNavigationController.m */,
 				B60E4A6B1DAA278C007FB3F2 /* MainController.h */,
 				B60E4A6C1DAA278C007FB3F2 /* MainController.m */,
 				B60E4A681DAA23C1007FB3F2 /* TestViewController.h */,
 				B60E4A691DAA23C1007FB3F2 /* TestViewController.m */,
+				B60E4A791DAA3BA3007FB3F2 /* T2ViewController.h */,
+				B60E4A7A1DAA3BA3007FB3F2 /* T2ViewController.m */,
 				B60E4A5D1DAA20F4007FB3F2 /* Assets.xcassets */,
 				B60E4A5F1DAA20F4007FB3F2 /* LaunchScreen.storyboard */,
 				B60E4A621DAA20F4007FB3F2 /* Info.plist */,
@@ -164,10 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60E4A781DAA3865007FB3F2 /* LYNavigationController.m in Sources */,
 				B60E4A6D1DAA278C007FB3F2 /* MainController.m in Sources */,
 				B60E4A561DAA20F4007FB3F2 /* AppDelegate.m in Sources */,
 				B60E4A751DAA2CD2007FB3F2 /* UINavigationController+LYPopGesture.m in Sources */,
 				B60E4A6A1DAA23C1007FB3F2 /* TestViewController.m in Sources */,
+				B60E4A7B1DAA3BA3007FB3F2 /* T2ViewController.m in Sources */,
 				B60E4A531DAA20F4007FB3F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

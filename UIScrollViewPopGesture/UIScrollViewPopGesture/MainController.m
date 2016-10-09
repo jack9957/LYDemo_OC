@@ -21,6 +21,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configBtn];
+    
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
 }
 
 - (void)configBtn

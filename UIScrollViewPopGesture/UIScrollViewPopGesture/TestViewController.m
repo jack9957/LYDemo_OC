@@ -8,6 +8,7 @@
 
 #import "TestViewController.h"
 #import "UINavigationController+LYPopGesture.h"
+#import "T2ViewController.h"
 
 @interface TestViewController ()
 
@@ -22,14 +23,16 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupScrollView];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+  
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
 }
 
-- (void)back:(UIBarButtonItem *)sender
+- (void)viewDidAppear:(BOOL)animated
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [super viewDidAppear:animated];
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
 }
+
 
 - (void)setupScrollView
 {
@@ -42,6 +45,13 @@
     
     [self ly_addPopGestureToView:scrollView];
     
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    T2ViewController *t2 = [[T2ViewController alloc] init];
+    
+    [self.navigationController pushViewController:t2 animated:YES];
 }
 
 @end
